@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Visual Studio\Projects\Gravel\bin\Debug\x64\Gravel\Gravel.dll</FullPath>
+      <FullPath>E:\Visual_Studio\Projects\Gravel\bin\Debug\x64\Gravel\Gravel.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\Visual Studio\Projects\Gravel\bin\Debug\x64\GBox\GBox.exe</FullPath>
+      <FullPath>E:\Visual_Studio\Projects\Gravel\bin\Debug\x64\GBox\GBox.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

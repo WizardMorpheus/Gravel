@@ -124,6 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GRAVEL_PLATFORM_WINDOWS;GRAVEL_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Gravel\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,12 +148,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gravel\Log.h" />
     <ClInclude Include="src\Gravel.h" />
     <ClInclude Include="src\Gravel\Application.h" />
     <ClInclude Include="src\Gravel\Core.h" />
     <ClInclude Include="src\Gravel\Entry.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gravel\Log.cpp" />
     <ClCompile Include="src\Gravel\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

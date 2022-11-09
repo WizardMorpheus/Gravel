@@ -6,7 +6,14 @@ extern Gravel::Application* Gravel::CreateApplication();
 
 int main(int argc, char** argv) 
 {
-	printf("Gravel_Engine..");
+	Gravel::Log::Init();
+
+	int t = 13;
+	GRAVEL_CORE_INFO("testing core: {0}", t);
+
+
+
+
 	auto app = Gravel::CreateApplication();
 	app->run();
 	delete app;

@@ -1,0 +1,3 @@
+[submodule "Gravel/vendor/spdlog"]
+	path = Gravel/vendor/spdlog
+	url = https://github.com/gabime/spdlog
