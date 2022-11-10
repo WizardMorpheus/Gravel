@@ -5,10 +5,12 @@
 #include <string>
 #include <functional>
 
+
+
 namespace Gravel
 {
 	//Currently events are handled when and where they occur, immediately.
-	//regardles of frame, times etc. Will be changed later to avoid performance issues.
+	//regardless of frame, times etc. Will be changed later to avoid performance issues.
 
 	enum class EventType
 	{
@@ -22,17 +24,17 @@ namespace Gravel
 	enum EventCategory
 	{
 		None = 0,
-		Application		= BIT(0),
-		Input			= BIT(1),
-		Keyboard		= BIT(2),
-		Mouse			= BIT(3),
-		Mouse_Button	= BIT(4)
+		ECat_Application	= BIT(0),
+		ECat_Input			= BIT(1),
+		ECat_Keyboard		= BIT(2),
+		ECat_Mouse			= BIT(3),
+		ECat_Mouse_Button	= BIT(4)
 	};
 
 	//macros
 #define EVENT_CLASS_TYPE(type)	static EventType GetStaticType()						{return EventType::##type;}\
 								virtual EventType GetEventType() const override			{return GetStaticType();}\
-								virtual const char* GetName const override				{return #type;}
+								virtual const char* GetName() const override			{return #type;}
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override	{return category;}
 
@@ -51,7 +53,35 @@ namespace Gravel
 			return GetCategoryFlags() & C;
 		}
 	protected:
-		bool Handled = false;
+		bool m_Handled = false;
 	};
+
+	class EventDispatcher
+	{
+		template<typename T>
+		using EventFn = std::function<bool(T&)>;
+	public:
+		EventDispatcher(Event& E)
+			: m_Event(E)
+		{
+		}
+
+		template <typename T>
+		bool Dispatch(EventFn<T> func)
+		{
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
+				m_Event.m_Handled = func(*(T*)&m_Event);
+				return true;
+			}
+			return false;
+		}
+
+	private:
+		Event& m_Event;
+	};
+
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& E) { return os << E.ToString(); }
 
 }

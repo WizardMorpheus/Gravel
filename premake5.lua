@@ -27,6 +27,7 @@ project "Gravel"
 
 	includedirs
 	{
+		"%{prj.location}/src",
 		"%{prj.location}/vendor/spdlog/include"
 	}
 

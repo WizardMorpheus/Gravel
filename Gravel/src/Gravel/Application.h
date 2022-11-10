@@ -2,6 +2,8 @@
 
 #include "Core.h"
 
+#include "Events/Event.h"
+
 namespace Gravel {
 
 	class GRAVEL_API Application {

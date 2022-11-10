@@ -11,33 +11,49 @@ namespace Gravel
 	{
 		inline int GetKeyCode() const { return KeyCode; }
 
-		// macro goes here
+		EVENT_CLASS_CATEGORY(ECat_Input | ECat_Keyboard);
 	protected:
 		KeyboardEvent(int keycode)
-			: KeyCode(keycode) {}
+			: m_KeyCode(keycode) {}
 
-		int KeyCode;
+		int m_KeyCode;
 	};
 
 
-	class GRAVEL_API KeyDownEvent : public KeyEvent
+	class GRAVEL_API KeyDownEvent : public KeyboardEvent
 	{
 		KeyDownEvent(int keycode, int repeatcount)
-			: KeyEvent(keycode), RepeatCount(repeatcount) {}
+			: KeyboardEvent(keycode), m_RepeatCount(repeatcount) {}
 
 		inline int GetRepeatCount() const { retun RepeatCount; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyDownEvent: " << KeyCode << " (" << RepeatCount << " repeats)";
+			ss << "KeyDownEvent: " << KeyCode << " (" << m_RepeatCount << " repeats)";
 			return ss.str();
 		}
 
-		//insert other macro here 
+		EVENT_CLASS_TYPE(Key_Down)
 	private:
-		int RepeatCount;
+		int m_RepeatCount;
 	};
 
+
+	class GRAVEL_API KeyUpEvent : public: KeyboardEvent
+	{
+	public:
+		KeyUpEvent(int keycode)
+			: KeyboardEvent(keycode) {}
+
+		std::string ToString()
+		{
+			std::stringstream ss;
+			ss << "KeyUpEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(Key_Up)
+	}
 
 }
