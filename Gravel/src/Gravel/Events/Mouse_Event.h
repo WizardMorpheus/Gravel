@@ -1,8 +1,7 @@
-pragma once
+#pragma once
+#include "grvpch.h"
 
 #include "Event.h"
-
-#include <sstream>
 
 namespace Gravel
 {

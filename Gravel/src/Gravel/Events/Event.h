@@ -1,10 +1,7 @@
 #pragma once
+#include "grvpch.h"
 
 #include "../Core.h"
-
-#include <string>
-#include <functional>
-
 
 
 namespace Gravel

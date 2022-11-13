@@ -34,6 +34,7 @@
     <ClInclude Include="src\Gravel\Log.h">
       <Filter>Gravel</Filter>
     </ClInclude>
+    <ClInclude Include="src\grvpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gravel\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Gravel\Log.cpp">
       <Filter>Gravel</Filter>
     </ClCompile>
+    <ClCompile Include="src\grvpch.cpp" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,5 @@
+#include "grvpch.h"
+
 #include "Log.h"
 
 namespace Gravel 
@@ -14,7 +16,7 @@ namespace Gravel
 		//("[%d/%m/%Y][%T.%e] %n[%^%l%$]: %v --- in %!() at %@")
 		//expands to:
 		//  [DD/MM/YYYY][Hrs:min:sec.mili] Logger[level(colour)]: message --- in funciton() at fileDir:Line
-		spdlog::set_pattern("[%d/%m/%Y][%T.%e] %n[%^%l%$]: %v --- in %!() at %@");
+		spdlog::set_pattern("[%d/%m/%Y][%T.%e] %n[%^%l%$]: %v");
 
 		//creates the Core logger and sets the level
 		s_CoreLogger = spdlog::stdout_color_mt("GRAVEL");
