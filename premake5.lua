@@ -11,6 +11,14 @@ workspace "Gravel"
 
 outputDir  = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+
+-- Include directories relative to root folder (solution dir)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Gravel/vendor/GLFW/include"
+
+include "Gravel/vendor/GLFW"
+
+
 project "Gravel"
 	location "Gravel"
 	kind "SharedLib"
@@ -33,8 +41,16 @@ project "Gravel"
 	includedirs
 	{
 		"%{prj.location}/src",
-		"%{prj.location}/vendor/spdlog/include"
+		"%{prj.location}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
+	}
+
 
 	filter "system:windows"
 		cppdialect "C++20"

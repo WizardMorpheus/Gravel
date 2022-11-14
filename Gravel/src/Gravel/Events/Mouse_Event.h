@@ -18,7 +18,7 @@ namespace Gravel
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvent: " << m_MouseX, << ", " m_MouseY;
+			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
 			return ss.str();
 		}
 
@@ -66,10 +66,10 @@ namespace Gravel
 	};
 
 
-	class GRAVEL_API MButtonDownEvent : public MouseButtonEvent
+	class GRAVEL_API MouseButtonDownEvent : public MouseButtonEvent
 	{
 	public:
-		MButtonDownEvent(int button)
+		MouseButtonDownEvent(int button)
 			: MouseButtonEvent(button) {}
 
 		std::string ToString() const override
@@ -82,10 +82,10 @@ namespace Gravel
 		EVENT_CLASS_TYPE(Mouse_Button_Down)
 	};
 
-	class GRAVEL_API MButtonDownEvent : public MouseButtonEvent
+	class GRAVEL_API MouseButtonUpEvent : public MouseButtonEvent
 	{
 	public:
-		MButtonDownEvent(int button)
+		MouseButtonUpEvent(int button)
 			: MouseButtonEvent(button) {}
 
 		std::string ToString() const override

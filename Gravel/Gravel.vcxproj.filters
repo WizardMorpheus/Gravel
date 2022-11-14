@@ -7,6 +7,12 @@
     <Filter Include="Gravel\Events">
       <UniqueIdentifier>{2A300A0E-96F0-8544-5F2B-CFC1CBAACA20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Gravel.h" />
@@ -34,6 +40,12 @@
     <ClInclude Include="src\Gravel\Log.h">
       <Filter>Gravel</Filter>
     </ClInclude>
+    <ClInclude Include="src\Gravel\Window.h">
+      <Filter>Gravel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\grvpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="src\Gravel\Log.cpp">
       <Filter>Gravel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\grvpch.cpp" />
   </ItemGroup>
