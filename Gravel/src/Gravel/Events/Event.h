@@ -49,6 +49,8 @@ namespace Gravel
 		{
 			return GetCategoryFlags() & C;
 		}
+
+		bool Handled() const { return m_Handled; }
 	protected:
 		bool m_Handled = false;
 	};

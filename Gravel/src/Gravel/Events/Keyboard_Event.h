@@ -47,7 +47,7 @@ namespace Gravel
 		KeyUpEvent(int keycode)
 			: KeyboardEvent(keycode) {}
 
-		std::string ToString()
+		std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "KeyUpEvent: " << m_KeyCode;

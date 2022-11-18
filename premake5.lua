@@ -71,14 +71,23 @@ project "Gravel"
 	filter "configurations:Debug"
 		defines "GRAVEL_DEBUG"
 		symbols "On"
+		--sets to /MDd
+		staticruntime "off"
+		runtime "Debug"
 
 	filter "configurations:Release"
 		defines "GRAVEL_RELEASE"
 		optimize "On"
+		--sets to /MD
+		staticruntime "off"
+		runtime "Release"
 
 	filter "configurations:Dist"
 		defines "GRAVEL_DIST"
 		optimize "On"
+		--sets to /MD
+		staticruntime "off"
+		runtime "Release"
 		
 project "Gbox"
 	location "GravelBox"
@@ -120,10 +129,19 @@ project "Gbox"
 		defines "GRAVEL_DEBUG"
 		symbols "On"
 
+		staticruntime "off"
+		runtime "Debug"
+
 	filter "configurations:Release"
 		defines "GRAVEL_RELEASE"
 		optimize "On"
 
+		staticruntime "off"
+		runtime "Release"
+
 	filter "configurations:Dist"
 		defines "GRAVEL_DIST"
 		optimize "On"
+
+		staticruntime "off"
+		runtime "Release"

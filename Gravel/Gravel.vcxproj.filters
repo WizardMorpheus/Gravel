@@ -37,6 +37,12 @@
     <ClInclude Include="src\Gravel\Events\Mouse_Event.h">
       <Filter>Gravel\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Gravel\Layer.h">
+      <Filter>Gravel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gravel\LayerStack.h">
+      <Filter>Gravel</Filter>
+    </ClInclude>
     <ClInclude Include="src\Gravel\Log.h">
       <Filter>Gravel</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gravel\Application.cpp">
+      <Filter>Gravel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gravel\Layer.cpp">
+      <Filter>Gravel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gravel\LayerStack.cpp">
       <Filter>Gravel</Filter>
     </ClCompile>
     <ClCompile Include="src\Gravel\Log.cpp">

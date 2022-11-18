@@ -1,1 +1,22 @@
-﻿  Gbox.vcxproj -> E:\Visual_Studio\Projects\Gravel\bin\Debug-windows-x86_64\Gbox\Gbox.exe
+﻿  GBoxApp.cpp
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\Log.h(21,42): warning C4251: 'Gravel::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Gravel::Log'
+E:\Visual_Studio\Projects\Gravel\Gravel\vendor\spdlog\include\spdlog\details\registry.h(34): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\Log.h(22,42): warning C4251: 'Gravel::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Gravel::Log'
+E:\Visual_Studio\Projects\Gravel\Gravel\vendor\spdlog\include\spdlog\details\registry.h(34): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\Layer.h(22,15): warning C4251: 'Gravel::Layer::m_DebugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Gravel::Layer'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\LayerStack.h(26,23): warning C4251: 'Gravel::LayerStack::m_Layers': class 'std::vector<Gravel::Layer *,std::allocator<Gravel::Layer *>>' needs to have dll-interface to be used by clients of class 'Gravel::LayerStack'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\LayerStack.h(22): message : see declaration of 'std::vector<Gravel::Layer *,std::allocator<Gravel::Layer *>>'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\LayerStack.h(27,33): warning C4251: 'Gravel::LayerStack::m_LayerInsert': class 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>' needs to have dll-interface to be used by clients of class 'Gravel::LayerStack'
+          with
+          [
+              _Ty=Gravel::Layer *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(457): message : see declaration of 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=Gravel::Layer *
+          ]
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\Application.h(29,27): warning C4251: 'Gravel::Application::m_Window': class 'std::unique_ptr<Gravel::Window,std::default_delete<Gravel::Window>>' needs to have dll-interface to be used by clients of class 'Gravel::Application'
+E:\Visual_Studio\Projects\Gravel\Gravel\src\Gravel\Application.h(29): message : see declaration of 'std::unique_ptr<Gravel::Window,std::default_delete<Gravel::Window>>'
+  Gbox.vcxproj -> E:\Visual_Studio\Projects\Gravel\bin\Debug-windows-x86_64\Gbox\Gbox.exe
