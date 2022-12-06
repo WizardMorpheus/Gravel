@@ -1,5 +1,8 @@
 #pragma once
 
+//	precompiled headers for the Gravel Engine
+//	speeds up compilation 
+
 #include <iostream>
 #include <memory>
 #include <utility>

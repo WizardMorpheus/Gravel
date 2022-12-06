@@ -11,6 +11,9 @@
 
 
 namespace Gravel {
+	//	declaration of all functions and such that exist relevant to the Application class,
+	//	see Application.h for inplementation and comments.
+
 
 	class GRAVEL_API Application {
 	public:

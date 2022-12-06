@@ -5,11 +5,12 @@
 namespace Gravel 
 {
 
-
+	//	ccreation of core and client loggers.
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
 	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
 	
+	//	Initialisation function, sets the logging format and levels of loggers to trace.
 	void Log::Init()
 	{
 		// Logging message format
