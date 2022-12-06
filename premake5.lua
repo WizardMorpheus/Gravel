@@ -15,12 +15,8 @@ outputDir  = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution dir)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Gravel/vendor/GLFW/include"
-IncludeDir["GLAD"] = "Gravel/vendor/GLAD/include"
-
 
 include "Gravel/vendor/GLFW"
-include "Gravel/vendor/GLAD"
-
 
 
 project "Gravel"
