@@ -2,7 +2,9 @@
 
 #include "Application.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
+
+#include "Input.h"
 
 namespace Gravel {
 	//	implementation of the Application class held by the Application.h file
@@ -12,10 +14,16 @@ namespace Gravel {
 #define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
 
 
+	Application* Application::s_Instance = nullptr;
+
+
 	//	default constructor. sets the window variable to a new windwo which is created when the constructor is called.
 	//	sets the event callback of the window to the OnEvent()
 	Application::Application() 
 	{
+		GRAVEL_CORE_ASSERT(!s_Instance, "Application Already exists");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(Application::OnEvent));
 	}
@@ -29,12 +37,16 @@ namespace Gravel {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		//	calls the OnAttach Callback for the layer that was attatched.
+		layer->OnAttatch();
 	}
 
 	//pushoverlay() function, pushes a layer as an overlay to the front of the layerstack.
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		//	calls the OnAttach Callback for the layer that was attatched.
+		layer->OnAttatch();
 	}
 
 
@@ -77,6 +89,12 @@ namespace Gravel {
 			// calls the OnUpdate Function for all layers throughout the LayerStack.
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			//do stuff
+
+			auto [x, y] = Input::GetMousePos();
+			GRAVEL_CORE_TRACE("mouse pos : {0}, {1}", x, y);
+
 
 			//	calls the OnUpdate function for the window.
 			m_Window->OnUpdate();

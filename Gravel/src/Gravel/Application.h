@@ -26,6 +26,10 @@ namespace Gravel {
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
+
+		// getters for the allication reference and window reference.
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
@@ -33,6 +37,8 @@ namespace Gravel {
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+
+		static Application* s_Instance;
 	};
 
 	Application* CreateApplication();

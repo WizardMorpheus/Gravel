@@ -77,4 +77,25 @@ namespace Gravel
 		EVENT_CLASS_TYPE(Key_Up)
 	};
 
+	//KeyTyped event
+	class GRAVEL_API KeyTypedEvent : public KeyboardEvent
+	{
+	public:
+		//default constructor takes a keycode and repeat count as parameters
+		//sets the keycode variable by calling the default constructor for the base class, and then sets the repeat count variable.
+		KeyTypedEvent(int keycode)
+			: KeyboardEvent(keycode) {}
+
+		//override for the toString() function
+		std::string ToString() const override
+		{ 
+			std::stringstream ss;
+			ss << "KeyTypedEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		//sets the event class type using the macro defined in the Event.h file
+		EVENT_CLASS_TYPE(Key_Typed)
+	private:
+	};
 }

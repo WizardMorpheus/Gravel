@@ -35,6 +35,9 @@ public:
 	{
 		//pushes a new ExampleLayer to the new GBox's LayerStack
 		PushLayer(new ExampleLayer);
+
+		//	pushes the ImGui Debug Overlayer.
+		PushOverlay(new Gravel::ImGuiLayer);
 	}
 
 	//default destructor

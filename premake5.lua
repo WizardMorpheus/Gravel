@@ -15,14 +15,21 @@ outputDir  = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution dir)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Gravel/vendor/GLFW/include"
+IncludeDir["Glad"] = "Gravel/vendor/Glad/include"
+IncludeDir["ImGui"] = "Gravel/vendor/imgui"
 
 include "Gravel/vendor/GLFW"
+include "Gravel/vendor/Glad"
+include "Gravel/vendor/imgui"
+
 
 
 project "Gravel"
 	location "Gravel"
 	kind "SharedLib"
 	language "C++"
+
+	toolset "v143"
 
 	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputDir .. "/%{prj.name}")
@@ -42,12 +49,16 @@ project "Gravel"
 	{
 		"%{prj.location}/src",
 		"%{prj.location}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -60,12 +71,13 @@ project "Gravel"
 		defines 
 		{
 			"GRAVEL_PLATFORM_WINDOWS",
-			"GRAVEL_BUILD_DLL"
+			"GRAVEL_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/GBox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/GBox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -94,7 +106,15 @@ project "Gbox"
 	kind "ConsoleApp"
 	language "C++"
 
+	toolset "v143"
+
 	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
+	
+	
+	
+	
+	
+	
 	objdir ("bin-intermediates/" .. outputDir .. "/%{prj.name}")
 
 	files

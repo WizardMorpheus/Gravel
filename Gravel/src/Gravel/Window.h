@@ -53,6 +53,11 @@ namespace Gravel
 		//	returns true if VSync is enabled.
 		virtual bool IsVSync() const = 0;
 
+
+		//returns reference to the window irrespective of the window type (GLFW, Windows native, etc.)
+		virtual void* GetNativeWindow() const = 0; 
+
+
 		//	Create() function for a window. creates a window and returns it's pointer.
 		static Window* Create(const WindowProps& props = WindowProps());
 	};

@@ -22,11 +22,14 @@
 	#error GRAVEL only supprts windows!
 #endif
 
+#ifdef GRAVEL_DEBUG
+#define GRAVEL_ENABLE_ASSERTS
+#endif
 
 //	enables asserts if needed for debugging etc.
 #ifdef GRAVEL_ENABLE_ASSERTS
-	#define GRAVEL_ASSERT(x, ...) {if (!(x)) {GRAVEL_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbeak(); } }
-	#define GRAVEL_CORE_ASSERT(x, ...) {if (!(x)) {GRAVEL_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbeak(); } }
+	#define GRAVEL_ASSERT(x, ...) {if (!(x)) {GRAVEL_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define GRAVEL_CORE_ASSERT(x, ...) {if (!(x)) {GRAVEL_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
 	#define GRAVEL_ASSERT(x, ...)
 	#define GRAVEL_CORE_ASSERT(x, ...)
@@ -35,3 +38,5 @@
 
 //	definition of BIT() function. creates an integer with only one bit turned on, the bit is given as an integer parameter.
 #define BIT(x) (1 << x)
+
+#define GRAVEL_BIND_EVENT_FNC(fn) std::bind(&fn, this, std::placeholders::_1)

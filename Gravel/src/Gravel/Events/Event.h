@@ -15,7 +15,7 @@ namespace Gravel
 		None = 0,
 		Window_Close, Window_Move, Window_Resize, Window_Focus, Window_UnFocus,
 		App_Tick, App_Render, App_Update,
-		Key_Down, Key_Up,
+		Key_Down, Key_Up, Key_Typed,
 		Mouse_Button_Up, Mouse_Button_Down, Mouse_Moved, Mouse_Scrolled
 	};
 

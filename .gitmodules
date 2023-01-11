@@ -4,3 +4,6 @@
 [submodule "Gravel/vendor/GLFW"]
 	path = Gravel/vendor/GLFW
 	url = https://github.com/WizardMorpheus/glfw
+[submodule "Gravel/vendor/imgui"]
+	path = Gravel/vendor/imgui
+	url = https://github.com/TheCherno/imgui

@@ -4,6 +4,7 @@
 
 #include <GLFW/glfw3.h>
 
+struct GLFWWindow;
 
 //	implementation for Window class on thw Windows OS.
 namespace Gravel
@@ -29,6 +30,9 @@ namespace Gravel
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
+
+		// OS specific Impl of the GetNativeWindow() getter.   returns the pointer to the GLFW Window.
+		inline virtual void* GetNativeWindow() const { return m_Window; }
 	private:
 		//	Initialise and shutdown functions.
 		virtual void Init(const WindowProps& props);

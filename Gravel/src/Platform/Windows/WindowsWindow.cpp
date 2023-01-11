@@ -6,6 +6,7 @@
 #include "Gravel\Events\Keyboard_Event.h"
 #include "Gravel\Events\Mouse_Event.h"
 
+#include <glad/glad.h>
 
 //	implementation of the WindowsWindow Class
 namespace Gravel
@@ -68,6 +69,10 @@ namespace Gravel
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		//	sets the current context of GLFW to the window that was just created.
 		glfwMakeContextCurrent(m_Window);
+		// initialses GLAD by setting its status to the status based from the glfw Proc
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		//	assert to inform in debug if GLAD has not loaded correctly
+		GRAVEL_CORE_ASSERT(status, "failed to initialise GLAD");
 		//	IDK what this does yet have to look up.
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		//	turns on VSync.
@@ -138,6 +143,14 @@ namespace Gravel
 					}
 				}
 			});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+			{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				KeyTypedEvent event(keycode);
+				data.EventCallback(event);
+			});
+
 
 
 		//	sets the callback for mouse button events when the window is in focus.
@@ -221,4 +234,5 @@ namespace Gravel
 	{
 		return m_Data.VSync;
 	}
+
 }
